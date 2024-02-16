@@ -11,7 +11,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Local_DataBase_Login_Page" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Local_DataBase_Login_Page" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,6 +226,17 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9R-wP-wu0">
+                                <rect key="frame" x="336" y="656" width="41" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="delete.left.fill" catalog="system" title="">
+                                    <color key="baseBackgroundColor" red="0.4914765358" green="0.47181248660000003" blue="0.18196699020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteButtonAction:" destination="48A-LC-WFO" eventType="touchUpInside" id="JHA-cR-6jn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sWA-SB-kKy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -250,6 +261,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZeH-B3-pop">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UL5-Of-azI"/>
                     </connections>
@@ -261,6 +275,7 @@
     </scenes>
     <resources>
         <image name="Group 1" width="247" height="234"/>
+        <image name="delete.left.fill" catalog="system" width="128" height="102"/>
         <image name="unnamed_(1)-zdddggumw-transformed" width="600" height="480"/>
         <image name="vecteezy_unlock-personal-password-account-security_4417585" width="1920" height="1702"/>
         <systemColor name="systemBackgroundColor">

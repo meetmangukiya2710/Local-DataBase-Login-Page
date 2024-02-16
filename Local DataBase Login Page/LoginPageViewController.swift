@@ -40,8 +40,8 @@ class LoginPageViewController: UIViewController {
         else {
             RegitrationSqliteFile.getData()
         }
+        
     }
-    
     func alert(title: String,msg: String) {
         let a = UIAlertController(title: title, message: msg, preferredStyle: .actionSheet)
         a.addAction(UIAlertAction(title: "Ok", style: .default))

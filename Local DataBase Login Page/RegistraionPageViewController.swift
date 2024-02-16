@@ -8,8 +8,6 @@
 import UIKit
 
 class RegistraionPageViewController: UIViewController {
-    
-    var value = String()
     @IBOutlet weak var emailTextFieldOutlet: UITextField!
     @IBOutlet weak var passwordTextFieldOutlet: UITextField!
     
@@ -50,7 +48,7 @@ class RegistraionPageViewController: UIViewController {
         let a = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         a.addAction(UIAlertAction(title: "Ok", style: .default))
         a.addAction(UIAlertAction(title: "Cancel", style: .destructive))
-        
+
         present(a, animated: true)
     }
     

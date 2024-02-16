@@ -9,6 +9,12 @@ import Foundation
 import UIKit
 import SQLite3
 
+
+struct user {
+    var email  : String
+    var password  : String
+}
+
 class RegitrationSqliteFile {
     
     static var file : OpaquePointer?
@@ -54,6 +60,38 @@ class RegitrationSqliteFile {
             }
             print("\n")
         }
+    }
+    
+        func checkdata(email : String , password : String) -> Bool {
+        var arr = [user]()
+        let q = "select email,password from user WHERE email = '\(email) 'and password = '\(password)'"
+        var table : OpaquePointer?
+            sqlite3_prepare(RegitrationSqliteFile.file, q, -1, &table, nil)
+        while sqlite3_step(table) == SQLITE_ROW{
+            let id = sqlite3_column_int64(table, 1)
+
+            print("\(id)")
+
+            if let Cstring = sqlite3_column_text(table, 0){
+                let name = String(cString: Cstring)
+                arr.append(user(email: String(id), password: name))
+                print("Name = \(name)")
+            } else {
+                print( "************************")
+            }
+        }
+
+        print("your data is recevied SuccessFully..")
+        return (arr.count != 0)
+    }
+    
+    static func deleteData(email: String,password: String) {
+        let quary = "DELETE FROM user WHERE email = '\(email)'"
+        var delete : OpaquePointer?
+        
+        sqlite3_prepare(file, quary, -1, &delete, nil)
+        sqlite3_step(delete)
+        print("Delete Data")
     }
     
 }
