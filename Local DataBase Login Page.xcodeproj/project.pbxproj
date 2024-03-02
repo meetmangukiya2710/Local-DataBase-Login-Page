@@ -16,6 +16,7 @@
 		BA841A572B7B39AE0065FDAD /* RegistraionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA841A562B7B39AE0065FDAD /* RegistraionPageViewController.swift */; };
 		BA841A592B7B3C610065FDAD /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA841A582B7B3C610065FDAD /* LoginPageViewController.swift */; };
 		BA841A5B2B7B3E220065FDAD /* Regitration Sqlite File.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA841A5A2B7B3E220065FDAD /* Regitration Sqlite File.swift */; };
+		BAAF95482B91E5AD000058D4 /* SuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAAF95472B91E5AD000058D4 /* SuccessViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		BA841A562B7B39AE0065FDAD /* RegistraionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraionPageViewController.swift; sourceTree = "<group>"; };
 		BA841A582B7B3C610065FDAD /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
 		BA841A5A2B7B3E220065FDAD /* Regitration Sqlite File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Regitration Sqlite File.swift"; sourceTree = "<group>"; };
+		BAAF95472B91E5AD000058D4 /* SuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				BA841A582B7B3C610065FDAD /* LoginPageViewController.swift */,
 				BA841A562B7B39AE0065FDAD /* RegistraionPageViewController.swift */,
 				BA841A482B7B35E00065FDAD /* Main.storyboard */,
+				BAAF95472B91E5AD000058D4 /* SuccessViewController.swift */,
 				BA841A4B2B7B35E10065FDAD /* Assets.xcassets */,
 				BA841A4D2B7B35E10065FDAD /* LaunchScreen.storyboard */,
 				BA841A502B7B35E10065FDAD /* Info.plist */,
@@ -148,6 +151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA841A5B2B7B3E220065FDAD /* Regitration Sqlite File.swift in Sources */,
+				BAAF95482B91E5AD000058D4 /* SuccessViewController.swift in Sources */,
 				BA841A472B7B35E00065FDAD /* ViewController.swift in Sources */,
 				BA841A572B7B39AE0065FDAD /* RegistraionPageViewController.swift in Sources */,
 				BA841A432B7B35E00065FDAD /* AppDelegate.swift in Sources */,

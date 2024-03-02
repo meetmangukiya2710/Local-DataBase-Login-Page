@@ -9,89 +9,58 @@ import Foundation
 import UIKit
 import SQLite3
 
-
-struct user {
-    var email  : String
-    var password  : String
+struct UserData {
+    var email: String
+    var password: String
 }
 
-class RegitrationSqliteFile {
-    
+class DBHelper {
     static var file : OpaquePointer?
+    static var userArray = [UserData]()
     
     static func createFile() {
         var a = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        a.appendPathExtension("My User Data.db")
+        a.appendPathComponent("My User Data1.db")
         sqlite3_open(a.path, &file)
+        print("Creat A File")
         print(a.path)
-        print("Create a File")
-        createTable()
+        creatTable()
     }
     
-    static func createTable() {
-        let q = "Create Table if not exists User (email text,password text)"
-        var table : OpaquePointer?
-        sqlite3_prepare(file, q, -1, &table, nil)
+    
+    static func creatTable() {
+        let quary = "Create Table if not exists User (email text,password text)"
+        var table: OpaquePointer?
+        sqlite3_prepare(file, quary, -1, &table, nil)
         sqlite3_step(table)
-        print("Create A Table")
+        print("Create Table")
     }
     
-    static func addData(email: String,password: String) {
-        let q = "insert into user values ('\(email)','\(password)')"
-        var addData : OpaquePointer?
-        sqlite3_prepare(file, q, -1, &addData, nil)
-        sqlite3_step(addData)
-        print("Add Data")
+    static func addData(email: String, password: String) {
+        let quary = "insert into user values ('\(email)', '\(password)')"
+        var add: OpaquePointer?
+        sqlite3_prepare(file, quary, -1, &add, nil)
+        sqlite3_step(add)
+        print("add data")
     }
     
-    
-    static func getData(){
-        let q = "SELECT * FROM user"
+    static func getData() {
+        let quary = "SELECT * FROM User"
         var read: OpaquePointer?
-        sqlite3_prepare(file, q, -1, &read, nil)
+        sqlite3_prepare(file, quary, -1, &read, nil)
+        
         
         while sqlite3_step(read) == SQLITE_ROW {
-            
-            if let email = sqlite3_column_text(read, 0) {
-                print(String(cString: email))
-            }
-            if let password = sqlite3_column_text(read, 1) {
-                print(String(cString: password))
-            }
-            print("\n")
-        }
-    }
-    
-        func checkdata(email : String , password : String) -> Bool {
-        var arr = [user]()
-        let q = "select email,password from user WHERE email = '\(email) 'and password = '\(password)'"
-        var table : OpaquePointer?
-            sqlite3_prepare(RegitrationSqliteFile.file, q, -1, &table, nil)
-        while sqlite3_step(table) == SQLITE_ROW{
-            let id = sqlite3_column_int64(table, 1)
-
-            print("\(id)")
-
-            if let Cstring = sqlite3_column_text(table, 0){
-                let name = String(cString: Cstring)
-                arr.append(user(email: String(id), password: name))
-                print("Name = \(name)")
-            } else {
-                print( "************************")
+            if let email = sqlite3_column_text(read, 0),
+               let password = sqlite3_column_text(read, 1) {
+                let userEmail = String(cString: email)
+                let userPassword = String(cString: password)
+                let userData = UserData(email: userEmail, password: userPassword)
+                userArray.append(userData)
+                print("Email: \(userEmail), Password: \(userPassword)")
             }
         }
-
-        print("your data is recevied SuccessFully..")
-        return (arr.count != 0)
-    }
-    
-    static func deleteData(email: String,password: String) {
-        let quary = "DELETE FROM user WHERE email = '\(email)'"
-        var delete : OpaquePointer?
-        
-        sqlite3_prepare(file, quary, -1, &delete, nil)
-        sqlite3_step(delete)
-        print("Delete Data")
     }
     
 }
+

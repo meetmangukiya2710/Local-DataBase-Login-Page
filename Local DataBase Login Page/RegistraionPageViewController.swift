@@ -13,7 +13,6 @@ class RegistraionPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
         
         let myColor : UIColor = .black
         
@@ -25,7 +24,6 @@ class RegistraionPageViewController: UIViewController {
         passwordTextFieldOutlet.layer.cornerRadius = 3
         passwordTextFieldOutlet.layer.borderColor = myColor.cgColor
         
-        RegitrationSqliteFile.createFile()
     }
     
     
@@ -40,7 +38,7 @@ class RegistraionPageViewController: UIViewController {
             alert(title: "Error!", msg: "Enter the Password")
         }
         else {
-            RegitrationSqliteFile.addData(email: emailTextFieldOutlet.text ?? "", password: passwordTextFieldOutlet.text ?? "")
+            DBHelper.addData(email: emailTextFieldOutlet.text ?? "", password: passwordTextFieldOutlet.text ?? "")
         }
     }
     
